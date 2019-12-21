@@ -1,0 +1,23 @@
+{
+  "name": "receipe-book",
+  "version": "1.0.0",
+  "description": "receipe manager",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "David Ezeugwa",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "bootstrap-icons": "^1.0.0-alpha2",
+    "consolidate": "*",
+    "dust": "*",
+    "dustjs-helpers": "*",
+    "dustjs-linkedin": "*",
+    "express": "*",
+    "nodemon": "^2.0.2",
+    "pg": "*"
+  }
+}
