@@ -4,19 +4,12 @@ path = require('path'),
 bodyParser = require('body-parser'),
 cons = require('consolidate'),
 dust = require('dustjs-helpers');
-
-
+require('dotenv').config();
 app = express();
 
-// DB connect string
-
- //var connectionString = "postgres://postgres:66139868AH@localhost:5432/receipebookdb";
- /*const config = {
-    user: 'David',
-    database: 'receipebookdb',
-    password: '66139868AH',
-    port: 5432
-};*/ 
+const username = process.env.USER_NAME;
+const password = process.env.PASSWORD;
+const host = process.env.HOST
 
 // Assign Dust Engine To .dust files
 
@@ -35,20 +28,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // pool takes the object above -config- as parameter
-const connectionString = 'postgresql://David:66139868AH@localhost:5432/receipebookdb'
+// const connectionString = 'postgresql://David:66139868AH@localhost:5432/receipebookdb'
 
 const pool = new Pool({
-    connectionString: connectionString,
+    connectionString: process.env.DATABASE_URL
   })
   
-
-
 app.get('/', (req, res, next) => {
    pool.connect(function (err, client, done){
         if (err) {
             console.log("Can not connect to the DB" + err);
         } 
-       // console.log('databaseconnected')
+
+        console.log('database connected')
         client.query('SELECT * FROM menus', function(err, result){
             
             if (err) {
@@ -139,10 +131,10 @@ app.post('/edit', function(req, res){
 
 
 
-
+const port = process.env.PORT || 3000
 
 
 // Server
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log('server started on port 3000');
 });
