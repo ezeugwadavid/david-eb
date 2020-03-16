@@ -50,21 +50,34 @@ app.get('/', (req, res, next) => {
             // res.status(200).send(result.rows);
             //console.log('RESULT HERE OOOOOO', result)
 
-             res.render('index', {menus: result.rows});
+             res.render('home', {menus: result.rows});
              
             done();
         });
     }); 
 
     // pools will use environment variables
-// for connection information
+ // for connection information
  /*pool.query('SELECT * from menu', (err, res) => {
     console.log(res.rows)
     pool.end()
   })*/
   
 
-}); 
+});
+
+
+
+app.get('/here', (req, res){
+    res.render({'home'})
+}),
+
+
+
+
+
+
+
 
 
 
@@ -79,12 +92,8 @@ app.post('/add',function(req, res){
        [req.body.name, req.body.ingredients, req.body.instructions]);
           done();
           res.redirect('/');
-
-       
-
-        });
+         });
     }); 
-
 
      app.delete('/delete/:id', function(req, res){
          
@@ -98,13 +107,9 @@ app.post('/add',function(req, res){
               done();
               res.send(200);
     
-           
-    
             });
 
-
-
-     });
+                });
 
 
 
