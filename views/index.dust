@@ -12,7 +12,7 @@
 
 {#menus}
   <div class="well">
-    <h4 class= "border-top h-100 w-auto mb-5 my-5">{name} <button class="btn btn-default float-right" data-toggle="collapse" href="#menus_{id}" aria-expanded="false" aria-controls="#menus_{id}">
+    <h4 class= "border-top h-100 w-auto mb-5 my-5">{name} <button class="btn btn-default float-right"  data-toggle="collapse" href="#menus_{id}" aria-expanded="false" aria-controls="#menus_{id}">
   View
     
     
